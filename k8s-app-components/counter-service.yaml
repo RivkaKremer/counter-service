@@ -32,7 +32,7 @@ spec:
             claimName: counter-pv-claim
       containers:
         - name: counter-service
-          image: 630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service
+          image: 630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
