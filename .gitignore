@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/infra-utils/eks-cluster/.terraform/
+/infra-utils/eks-cluster/.terraform.tfstate.lock.info
+/infra-utils/eks-cluster/terraform.tfstate
+/infra-utils/jenkins/.terraform/
+/infra-utils/jenkins/terraform.tfstate
+/infra-utils/jenkins/terraform.tfstate.backup
