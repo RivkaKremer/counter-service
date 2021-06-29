@@ -2,7 +2,6 @@
 from flask import Flask, request, request_started
 import configparser
 
-
 config = configparser.ConfigParser()
 config.read("counter-value.ini")
 counter = int(config.get("counter_val", "counter"))
