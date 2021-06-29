@@ -20,7 +20,7 @@ pipeline{
         stage('Build Image'){
             steps{
                 script {
-                    sh 'git show -s --pretty=%an'
+                    env.commiter = sh 'git show -s --pretty=%an'
                     dir('app'){
                         dockerImage = docker.build registry
                     }
@@ -28,6 +28,9 @@ pipeline{
             }
         }
         stage('Publish image') {
+            when{
+                expression {  env.commiter != 'fluxcdbot' }
+            }
             steps{
                 script{
                     docker.withRegistry("https://" + registry, "ecr:us-west-1:" + registryCredential) {
