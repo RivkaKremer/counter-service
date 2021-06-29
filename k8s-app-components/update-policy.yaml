@@ -11,7 +11,7 @@ spec:
       name: counter-service
   commit:
     authorEmail: rivka.k@develeap.com
-    authorName: fluxcdbot
+    authorName: RivkaKremer
     messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
   interval: 1m0s
   push:
