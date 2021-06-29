@@ -41,13 +41,14 @@ pipeline{
                 script{
                     sh """
                         sed -i "s/630943284793.dkr.ecr.us-west-1.amazonaws.com\\/counter-service:0.0.[0-9]*/630943284793.dkr.ecr.us-west-1.amazonaws.com\\/counter-service:0.0.${env.BUILD_NUMBER}/g" k8s-app-components/counter-service.yaml
-                        echo 1
-                        git add k8s-app-components/counter-service.yaml
-                        echo 2
-                        git commit -m "Updated version to 0.0.${env.BUILD_NUMBER}"
-                        echo 3
-                        git push origin $GIT_BRANCH
                     """
+                    sh  'echo 2'
+                    sshagent(["34bd77c8-0b89-47b0-bf7f-2c2a3ab7c03e"]) {
+                        sh 'git add k8s-app-components/counter-service.yaml'
+                        sh "git commit -m \"Updated version to 0.0.${env.BUILD_NUMBER}\""
+                        sh "git push origin $GIT_BRANCH"
+                    }
+
                 }
             }
         }
