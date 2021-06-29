@@ -34,7 +34,7 @@ spec:
             claimName: counter-pv-claim
       containers:
         - name: counter-service
-          image: 630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service:0.0.600 # {"$imagepolicy": "flux-system:counter-service"}
+          image: 630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service:0.0.601 # {"$imagepolicy": "flux-system:counter-service"}
           imagePullPolicy: Always
           ports:
             - containerPort: 80
