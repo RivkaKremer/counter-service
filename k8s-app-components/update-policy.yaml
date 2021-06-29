@@ -8,14 +8,14 @@ spec:
   checkout:
     branch: check-point-task
     gitRepositoryRef:
-      name: counter-service
+      name: flux-system
   commit:
     authorEmail: rivka.k@develeap.com
     authorName: RivkaKremer
     messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
   interval: 1m0s
-  push:
-    branch: check-point-task
-  update:
-    path: ./k8s-app-components
-    strategy: Setters
+#  push:
+#    branch: check-point-task
+#  update:
+#    path: ./k8s-app-components
+#    strategy: Setters
