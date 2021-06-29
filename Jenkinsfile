@@ -48,7 +48,7 @@ pipeline{
                         sh 'git config --global --replace-all user.email rivka.k@develeap.com'
                         sh 'git add k8s-app-components/counter-service.yaml'
                         sh "git commit -m \"Updated version to 0.0.${env.BUILD_NUMBER}\""
-                        sh "git push origin $GIT_BRANCH"
+                        sh "git push origin check-point-task"
                     }
 
                 }
