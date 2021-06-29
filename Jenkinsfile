@@ -20,7 +20,9 @@ pipeline{
         stage('Build Image'){
             steps{
                 script {
-                    dockerImage = docker.build registry
+                    dir('app'){
+                        dockerImage = docker.build registry
+                    }
                 }
             }
         }
@@ -34,19 +36,19 @@ pipeline{
                 }
             }
         }
-        stage('Deploy image'){
-            steps{
-                script{
-                    sh """
-                        sed -i "s/630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service*/630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service:${env.BUILD_NUMBER}/g" counter-service.yaml
-                        cat counter-service.yaml
-                        git add --all
-                        git commit -m "Updated version to ${env.BUILD_NUMBER}"
-                        git push origin $GIT_BRANCH
-                    """
-                }
-            }
-        }
+//        stage('Deploy image'){
+//            steps{
+//                script{
+//                    sh """
+//                        sed -i "s/630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service*/630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service:${env.BUILD_NUMBER}/g" counter-service.yaml
+//                        cat counter-service.yaml
+//                        git add --all
+//                        git commit -m "Updated version to ${env.BUILD_NUMBER}"
+//                        git push origin $GIT_BRANCH
+//                    """
+//                }
+//            }
+//        }
     }
 //    post {
 //        always {
