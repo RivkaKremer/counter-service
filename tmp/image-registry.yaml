@@ -5,6 +5,8 @@ metadata:
   name: counter-service
   namespace: flux-system
 spec:
+  secretRef:
+    name: ecr-credentials
   image: 630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service
   interval: 1m0s
 
