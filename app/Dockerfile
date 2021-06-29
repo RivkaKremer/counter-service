@@ -4,7 +4,7 @@ RUN mkdir /app
 WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
-ADD counter-service.py counter-value.ini /app/
+COPY counter-service.py counter-value.ini /app/
 
 
 EXPOSE 80
