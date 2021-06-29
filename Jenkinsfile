@@ -37,15 +37,16 @@ pipeline{
             }
         }
     }
-//    post {
-//        always {
-//
-//        }
-//        success{
-//
-//        }
-//        failure{
-//
-//        }
-//    }
+    post {
+        success{
+            script{
+                println("CI Pipeline Succeed, Now CD Should Be Automatically Triggered By Flux...")
+            }
+        }
+        failure{
+            script{
+                println("CI Pipeline Failed, Please Check The Errors...")
+            }
+        }
+    }
 }
