@@ -1,45 +1,21 @@
-apiVersion: image.toolkit.fluxcd.io/v1alpha2
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
 kind: ImageUpdateAutomation
 metadata:
   name: flux-system
-  namespace: flux-system
+  namespace: default
 spec:
+  checkout:
+    branch: check-point-task
+    gitRepositoryRef:
+      name: counter-service
+  commit:
+    authorEmail: rivka.k@develeap.com
+    authorName: fluxcdbot
+    messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
   interval: 1m0s
-#  sourceRef:
-#    kind: GitRepository
-#    name: flux-system
-  git:
-    checkout:
-      ref:
-        branch: check-point-task
-    commit:
-      author:
-        email: fluxcdbot@users.noreply.github.com
-        name: fluxcdbot
-      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
-    push:
-      branch: check-point-task
+  push:
+    branch: check-point-task
   update:
     path: ./
     strategy: Setters
-#---
-#apiVersion: image.toolkit.fluxcd.io/v1alpha1
-#kind: ImageUpdateAutomation
-#metadata:
-#  name: flux-system
-#  namespace: default
-#spec:
-#  checkout:
-#    branch: check-point-task
-#    gitRepositoryRef:
-#      name: flux-system
-#  commit:
-#    authorEmail: rivka.k@develeap.com
-#    authorName: fluxcdbot
-#    messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
-#  interval: 1m0s
-#  push:
-#    branch: check-point-task
-#  update:
-#    path: ./
-#    strategy: Setters
