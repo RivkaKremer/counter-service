@@ -44,7 +44,7 @@ pipeline{
                     """
                     sshagent(["34bd77c8-0b89-47b0-bf7f-2c2a3ab7c03e"]) {
                         sh 'git config --global --replace-all user.name RivkaKremer'
-                        sh 'config --global --replace-all user.email rivka.k@develeap.com'
+                        sh 'git config --global --replace-all user.email rivka.k@develeap.com'
                         sh 'git add k8s-app-components/counter-service.yaml'
                         sh "git commit -m \"Updated version to 0.0.${env.BUILD_NUMBER}\""
                         sh "git push origin $GIT_BRANCH"
