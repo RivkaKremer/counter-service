@@ -13,9 +13,11 @@ def index():
     if request.method == "POST":
         counter+=1
         config.set('counter_val', 'counter', str(counter))
+
         return "Hmm, Plus 1 to the counter please...\n"
     else:
         return str(f"Our counter is: {counter} ! \nYou are my champion!\n")
+
 
 if __name__ == '__main__':
     app.run(debug=True,port=80,host='0.0.0.0')
