@@ -36,19 +36,19 @@ pipeline{
                 }
             }
         }
-//        stage('Deploy image'){
-//            steps{
-//                script{
-//                    sh """
-//                        sed -i "s/630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service*/630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service:${env.BUILD_NUMBER}/g" counter-service.yaml
-//                        cat counter-service.yaml
-//                        git add --all
-//                        git commit -m "Updated version to ${env.BUILD_NUMBER}"
-//                        git push origin $GIT_BRANCH
-//                    """
-//                }
-//            }
-//        }
+        stage('Deploy image'){
+            steps{
+                script{
+                    sh """
+                        sed -i "s/630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service:/630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service:0.0.${env.BUILD_NUMBER}/g" k8s-app-components/counter-service.yaml
+                        cat k8s-app-components/counter-service.yaml
+                        git add k8s-app-components/counter-service.yaml
+                        git commit -m "Updated version to 0.0.${env.BUILD_NUMBER}"
+                        git push origin $GIT_BRANCH
+                    """
+                }
+            }
+        }
     }
 //    post {
 //        always {
