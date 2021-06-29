@@ -32,7 +32,7 @@ metadata:
   namespace: flux-system
   # Uncomment and edit if using IRSA
    annotations:
-     eks.amazonaws.com/role-arn: arn:aws:iam::630943284793:oidc-provider/oidc.eks.us-west-1.amazonaws.com/id/7A0CA4D24F84E5B3C5EF37F6F7ECFAB7
+     eks.amazonaws.com/role-arn: arn:aws:iam::630943284793:oidc-provider/oidc.eks.us-west-1.amazonaws.com
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
