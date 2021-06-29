@@ -17,5 +17,5 @@ spec:
   push:
     branch: check-point-task
   update:
-    path: ./k8s-app-components
+    path: ./
     strategy: Setters
