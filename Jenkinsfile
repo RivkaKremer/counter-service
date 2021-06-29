@@ -42,6 +42,7 @@ pipeline{
                     sh """
                         sed -i "s/630943284793.dkr.ecr.us-west-1.amazonaws.com\\/counter-service:0.0.[0-9]*/630943284793.dkr.ecr.us-west-1.amazonaws.com\\/counter-service:0.0.${env.BUILD_NUMBER}/g" k8s-app-components/counter-service.yaml
                     """
+                    sh 'cat k8s-app-components/counter-service.yaml'
                     sshagent(["34bd77c8-0b89-47b0-bf7f-2c2a3ab7c03e"]) {
                         sh 'git config --global --replace-all user.name RivkaKremer'
                         sh 'git config --global --replace-all user.email rivka.k@develeap.com'
