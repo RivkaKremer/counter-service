@@ -20,6 +20,7 @@ pipeline{
         stage('Build Image'){
             steps{
                 script {
+                    sh 'git show -s --pretty=%an'
                     dir('app'){
                         dockerImage = docker.build registry
                     }
