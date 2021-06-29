@@ -11,7 +11,6 @@ spec:
       port: 80
       targetPort: 80
   type: LoadBalancer
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,14 +34,13 @@ spec:
             claimName: counter-pv-claim
       containers:
         - name: counter-service
-          image: 630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service:0.0.185 # {"$imagepolicy": "flux-system:counter-service"}
+          image: 630943284793.dkr.ecr.us-west-1.amazonaws.com/counter-service:0.0.186 # {"$imagepolicy": "flux-system:counter-service"}
           imagePullPolicy: Always
           ports:
             - containerPort: 80
           volumeMounts:
             - mountPath: "/app/counter-volume.ini"
               name: counter-pv-storage
-
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -59,7 +57,6 @@ spec:
     - ReadWriteMany
   hostPath:
     path: "/app/counter-volume.ini"
-
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
