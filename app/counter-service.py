@@ -16,7 +16,7 @@ def index():
 
         return "Hmm, Plus 1 to the counter please...\n"
     else:
-        return str(f"Our counter is: {counter} ! \nYou are my champion!\n")
+        return str(f"My counter is: {counter} ! \nYou are my great champion!\n")
 
 
 if __name__ == '__main__':
