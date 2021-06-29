@@ -7,8 +7,8 @@ metadata:
 spec:
   checkout:
     branch: check-point-task
-#    gitRepositoryRef:
-#      name: flux-system
+    gitRepositoryRef:
+      name: flux-system
   commit:
     authorEmail: rivka.k@develeap.com
     authorName: fluxcdbot
