@@ -1,0 +1,21 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha2
+kind: ImageUpdateAutomation
+metadata:
+  name: flux-system
+  namespace: flux-system
+spec:
+  checkout:
+    branch: check-point-task
+    gitRepositoryRef:
+      name: flux-system
+  commit:
+    authorEmail: rivka.k@develeap.com
+    authorName: RivkaKremer
+    messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+  interval: 1m0s
+#  push:
+#    branch: check-point-task
+#  update:
+#    path: ./k8s-app-components
+#    strategy: Setters
